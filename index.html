@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Horario Escolar</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Horario Escolar</h1>
-    <table id="horario">
-        <!-- Aquí se mostrará el horario -->
-    </table>
+    <div class="table-container">
+        <div class="navigation">
+            <button id="prevWeek">Semana Anterior</button>
+            <button id="nextWeek">Semana Siguiente</button>
+        </div>
+        <table id="horario">
+            <!-- Aquí se mostrará el horario -->
+        </table>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
