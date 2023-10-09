@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Ver Horarios</title>
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+    <style>
+        /* Estilo para resaltar la celda editada */
+        .editando {
+            border: 5px solid #D8D8D8; /* Borde para resaltar toda la celda */
+            text-align: center;
+            background-color: #D8D8D8; /* Color de fondo de la celda */
+        }
+        /* Estilos para el texto de la materia y el profesor */
+        .materia {
+            font-weight: bold;
+        }
+        .profesor {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    </nav>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Actividad semanal</h1>
+                <div class="form-row align-items-center">
+                    <div class="col-auto">
+                        <label for="laboratorioSelect">Selecciona un laboratorio:</label>
+                        <select class="form-control" id="laboratorioSelect">
+                            <option value="Laboratorio de Circuitos">Laboratorio de Circuitos</option>
+                            <option value="Laboratorio de Aplicaciones Móviles">Laboratorio de Aplicaciones Móviles</option>
+                            <option value="Laboratorio de Base de Datos">Laboratorio de Base de Datos</option>
+                            <option value="Laboratorio de Prototipos">Laboratorio de Prototipos</option>
+                        </select>
+                    </div>
+                    <div class="col align-self-center">
+                        <button id="verHorarioBtn" class="btn btn-info mt-4">Ver Horario</button>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Horas</th>
+                            <th th:each="dia : ${diasSemana}" th:text="${dia}" style="text-align: center;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="hora : ${horas}">
+                            <td th:text="${hora}" style="text-align: center;"></td>
+                            <td th:each="dia : ${diasSemana}" >
+                                <div>
+                                    <div th:each="horario : ${horarios}" th:if="${hora >= horario.horaInicio and hora <= horario.horaFin and horario.diaHorario == dia}" class="editando">  
+                                        <span class="horario-materia materia" th:text="${horario.materiaHorario}"></span>
+                                        <br/>
+                                        <span class="horario-profesor profesor" th:text="${horario.profeHorario}"></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Obtén el valor de laboratorio de la URL
+            var selectedLaboratorio = getQueryVariable("laboratorio");
+
+            // Establece el valor seleccionado en el cuadro de selección
+            $("#laboratorioSelect").val(selectedLaboratorio);
+
+            // Maneja el clic en el botón "Ver Horario"
+            $("#verHorarioBtn").click(function () {
+                selectedLaboratorio = $("#laboratorioSelect").val();
+                // Redirige al usuario al laboratorio seleccionado
+                window.location.href = "/ver?laboratorio=" + encodeURIComponent(selectedLaboratorio);
+            });
+
+            // Función para obtener el valor de una variable de consulta en la URL
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] === variable) {
+                        return decodeURIComponent(pair[1]);
+                    }
+                }
+                return null;
+            }
+
+            // Leer y procesar el archivo de texto "horarios.txt"
+            fetch('horarios.txt')
+                .then(response => response.text())
+                .then(data => {
+                    // Dividir el contenido del archivo en líneas
+                    var lines = data.split('\n');
+
+                    // Iterar a través de las líneas y procesar los datos
+                    lines.forEach(line => {
+                        var parts = line.split(',');
+                        var horaInicio = parts[0].trim();
+                        var horaFin = parts[1].trim();
+                        var nombre = parts[2].trim();
+                        var materia = parts[3].trim();
+                        var diaSemana = parts[4].trim();
+
+                        // Encuentra la celda correspondiente en la tabla y agrega los datos
+                        var cellSelector = 'td:contains("' + diaSemana + '")';
+                        var cell = $(cellSelector).eq(parts[0].trim() - 7); // Resta 7 para ajustar la hora de inicio
+                        cell.find('.horario-materia').text(materia);
+                        cell.find('.horario-profesor').text(nombre);
+                    });
+                })
+                .catch(error => console.error('Error al cargar el archivo:', error));
+        });
+    </script>
+</body>
+</html>
