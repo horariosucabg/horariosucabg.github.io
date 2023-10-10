@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "Ejemplo 1",
+    "descripcion": "Este es el primer ejemplo"
+  },
+  {
+    "nombre": "Ejemplo 2",
+    "descripcion": "Este es el segundo ejemplo"
+  },
+  {
+    "nombre": "Ejemplo 3",
+    "descripcion": "Este es el tercer ejemplo"
+  }
+]
