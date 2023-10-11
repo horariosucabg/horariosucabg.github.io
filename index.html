@@ -2,20 +2,47 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Horario Escolar</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Horario Escolar</h1>
-    <div class="table-container">
-        <div class="navigation">
-            <button id="prevWeek">Semana Anterior</button>
-            <button id="nextWeek">Semana Siguiente</button>
+    <!-- Contenido principal del HTML -->
+    <div class="semana-titulo">        
+        <h1 id="fecha-actual"></h1>
+        <!--<button id="anterior-semana">Anterior</button> -->
+        <button id="semana-actual">Semana actual</button>
+        <button id="siguiente-semana">Semana siguiente</button>
+    </div>
+    <div id="horarios" class="table-container">
+        <h2>Horarios de la semana</h2>
+        <div>
+            <label for="laboratorio-select">Selecciona un laboratorio:</label>
+            <select id="laboratorio-select">
+                <option value="Laboratorio de Circuitos">Laboratorio de Circuitos</option>
+                <option value="Laboratorio de Aplicaciones Móviles">Laboratorio de Aplicaciones Móviles</option>
+                <option value="Laboratorio de Base de Datos">Laboratorio de Base de Datos</option>
+                <option value="Laboratorio de Prototipos">Laboratorio de Prototipos</option>
+            </select>
         </div>
-        <table id="horario">
-            <!-- Aquí se mostrará el horario -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-horarios">
+                <!-- Aquí se mostrarán los horarios -->
+            </tbody>
         </table>
     </div>
-    <script src="app.js"></script>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>

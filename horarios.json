@@ -1,0 +1,27 @@
+[
+    {
+        "diaSemana": "Lunes",
+        "fechaInicio": "2023-10-10T10:00:00",
+        "fechaFin": "2023-10-10T12:00:00",
+        "materia": "Matemáticas",
+        "profesor": "Profesor Ejemplo",
+        "laboratorio": "Laboratorio de Circuitos"
+    },
+    {
+        "diaSemana": "Miércoles",
+        "fechaInicio": "2023-10-18T14:00:00",
+        "fechaFin": "2023-10-18T16:00:00",
+        "materia": "Ciencias",
+        "profesor": "Otro Profesor",
+        "laboratorio": "Laboratorio de Circuitos"
+    },
+    {
+        "diaSemana": "Jueves",
+        "fechaInicio": "2023-10-19T14:00:00",
+        "fechaFin": "2023-10-26T16:00:00",
+        "materia": "Ciencias",
+        "profesor": "Otro Profesor",
+        "laboratorio": "Laboratorio de Circuitos"
+    }
+    
+]

@@ -1,44 +1,90 @@
-/* Agrega estilos a la tabla */
+/* Estilo para la página principal */
+body {
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    width: 500px;
+    margin: 0 auto;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    color: #222;
+    font-size: 1.2em; /* Tamaño de fuente reducido */
+    line-height: 1.5; /* Espacio entre líneas reducido */
+    font-weight: 400;
+  }
+  
+  h1, h2 {
+    font-family: 'Faster One', cursive;
+  }
+  
+  /* Estilo para el encabezado */
+  h1 {
+    font-size: 1.8rem; /* Tamaño de fuente reducido */
+    text-align: center;
+  }
+  
+  /* Estilo para los botones */
+  button, #semana-actual {
+    display: inline-block;
+    height: 30px; /* Altura reducida */
+    padding: 0 20px; /* Relleno reducido */
+    color: #fff;
+    text-align: center;
+    font-size: 14px; /* Tamaño de fuente reducido */
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #4caf50; /* Verde */
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 5px;
+  }
+  
+  button:hover, #semana-actual:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+  }
+  
+  #semana-actual {
+    background-color: #007bff; /* Azul */
+  }
+  
+  #semana-actual:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  }
+  
+  /* Estilo para la selección de laboratorio */
+  label {
+    color: #333; /* Texto oscuro */
+  }
+  
+  #laboratorio-select {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 3px; /* Relleno reducido */
+    font-size: 14px; /* Tamaño de fuente reducido */
+    color: #333; /* Texto oscuro */
+  }
+  
+  /* Estilo para la tabla de horarios */
+/* Estilo para la tabla de horarios */
 .table-container {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
+    background-color: #fff; /* Fondo blanco */
+    padding: 10px; /* Relleno reducido */
+    margin: 10px; /* Margen reducido */
+    box-shadow: 0 0 5px #888888; /* Sombra ligera y reducida */
+  }
+  
+  table {
+    width: 100%; /* Ancho completo */
+    max-width: 400px; /* Máximo ancho de la tabla */
     border-collapse: collapse;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-}
-
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    border-bottom: 2px solid #ccc;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Estilo para la tabla responsiva en dispositivos pequeños */
-@media (max-width: 600px) {
-    table {
-        border: 0;
-    }
-
-    th, td {
-        padding: 8px;
-        display: block;
-        width: 100%;
-    }
-
-    th {
-        text-align: left;
-        background-color: #ddd;
-    }
-}
+    border: 3px solid #0075f9; /* Borde azul con mayor ancho */
+    letter-spacing: 1px;
+    font-size: 1.2rem; /* Tamaño de fuente reducido */
+  }
+  
+  td, th {
+    border: 2px solid rgba(0, 198, 79, 0.866); /* Borde verde con transparencia y mayor ancho */
+    padding: 5px 20px; /* Relleno reducido */
+    text-align: center;
+  }
+  
