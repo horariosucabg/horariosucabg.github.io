@@ -8,13 +8,13 @@
 </head>
 <body>
     <!-- Contenido principal del HTML -->
-    <div class="semana-titulo">        
-        <h1 id="fecha-actual"></h1>
-        <!--<button id="anterior-semana">Anterior</button> -->
-        <button id="semana-actual">Semana actual</button>
-        <button id="siguiente-semana">Semana siguiente</button>
-    </div>
+
     <div id="horarios" class="table-container">
+        <div class="semana-titulo">        
+            <h1 id="fecha-actual"></h1>
+            <button id="semana-actual">Semana actual</button>
+            <button id="siguiente-semana">Semana siguiente</button>
+        </div>
         <h2>Horarios de la semana</h2>
         <div>
             <label for="laboratorio-select">Selecciona un laboratorio:</label>
@@ -41,6 +41,34 @@
             </tbody>
         </table>
     </div>
+
+    <div id="reserva-horario">
+        <h2>Reserva tu horario</h2>
+        <form id="formulario-reserva">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="laboratorio">Laboratorio:</label>
+            <select id="laboratorio" name="laboratorio">
+                <option value="Laboratorio de Circuitos">Laboratorio de Circuitos</option>
+                <option value="Laboratorio de Aplicaciones Móviles">Laboratorio de Aplicaciones Móviles</option>
+                <option value="Laboratorio de Base de Datos">Laboratorio de Base de Datos</option>
+                <option value="Laboratorio de Prototipos">Laboratorio de Prototipos</option>
+            </select>
+    
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+            
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            
+            <button type="submit">Reservar</button>
+        </form>
+    </div>
+    
 
     <script src="script.js"></script>
     
