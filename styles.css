@@ -1,14 +1,14 @@
 /* Estilo para la página principal */
 body {
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
-    width: 900px;
-    margin: 0 auto;
-    background-color: #f0f0f0; /* Fondo gris claro */
-    color: #222;
-    font-size: 1.2em; /* Tamaño de fuente reducido */
-    line-height: 1.5; /* Espacio entre líneas reducido */
-    font-weight: 400;
-  }
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+  width: 900px;
+  margin: 0 auto;
+  background-color: #f0f0f0; /* Fondo gris claro */
+  color: #222;
+  font-size: 1.2em; /* Tamaño de fuente reducido */
+  line-height: 1.5; /* Espacio entre líneas reducido */
+  font-weight: 400;
+}
   
   h1, h2 {
     font-family: 'Faster One', cursive;
@@ -64,7 +64,6 @@ body {
     color: #333; /* Texto oscuro */
   }
   
-  /* Estilo para la tabla de horarios */
 /* Estilo para la tabla de horarios */
 .table-container {
     background-color: #fff; /* Fondo blanco */
@@ -72,16 +71,7 @@ body {
     margin: 10px; /* Margen reducido */
     box-shadow: 0 0 5px #888888; /* Sombra ligera y reducida */
   }
-  
-  table {
-    width: 100%; /* Ancho completo */
-    max-width: 400px; /* Máximo ancho de la tabla */
-    border-collapse: collapse;
-    border: 3px solid #0075f9; /* Borde azul con mayor ancho */
-    letter-spacing: 1px;
-    font-size: 1.2rem; /* Tamaño de fuente reducido */
-  }
-  
+
   td, th {
     border: 2px solid rgba(0, 198, 79, 0.866); /* Borde verde con transparencia y mayor ancho */
     padding: 5px 20px; /* Relleno reducido */
